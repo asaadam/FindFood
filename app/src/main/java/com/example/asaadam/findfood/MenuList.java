@@ -2,6 +2,9 @@ package com.example.asaadam.findfood;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -21,13 +24,18 @@ public class MenuList extends AppCompatActivity {
         ArrayList<Menu> menus = new ArrayList<Menu>();
         menus.add(new Menu("Nasi Goreng", "Mudah dibuat ", "30",R.drawable.testimage));
         menus.add(new Menu("Nasi Ayam", "Testing", "20",R.drawable.testimage));
+        menus.add(new Menu("Nasi Ayam", "Testing", "20",R.drawable.testimage));
+        menus.add(new Menu("Nasi Ayam", "Testing", "20",R.drawable.testimage));
+        menus.add(new Menu("Nasi Ayam", "Testing", "20",R.drawable.testimage));
+
 
         //Set Adapter
         MenuAdapter adapter = new MenuAdapter(this, menus);
 
         //Find List View
-        ListView listView = (ListView) findViewById(R.id.list);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
         //Set Adapter to list View
-        listView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
     }
 }
