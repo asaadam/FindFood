@@ -29,12 +29,16 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".login_activity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".login_activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".Main2Activity"/>
+
+       <activity android:name=".MenuList"
+           android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
 
     </application>
-
 
 </manifest>

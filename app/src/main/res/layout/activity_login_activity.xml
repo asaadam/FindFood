@@ -68,7 +68,8 @@ android:background="@color/Primary">
         android:inputType="textEmailAddress"
         android:maxLines="1"
         android:textColor="#000"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:textColorHint="#000"/>
 
 </android.support.design.widget.TextInputLayout>
 
@@ -88,10 +89,13 @@ android:background="@color/Primary">
         android:imeOptions="actionUnspecified"
         android:inputType="textPassword"
         android:maxLines="1"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:textColorHint="#000"
+        android:textSize="20sp"/>
 
 </android.support.design.widget.TextInputLayout>
 <Button
+    android:onClick="startSignin"
     android:layout_gravity="center"
     android:id="@+id/singIn"
     android:layout_width="wrap_content"
