@@ -22,11 +22,12 @@ public class MenuList extends AppCompatActivity {
 
         //Create Arraylist for menus.
         ArrayList<Menu> menus = new ArrayList<Menu>();
-        menus.add(new Menu("Nasi Goreng", "Mudah dibuat ", "30",R.drawable.testimage));
-        menus.add(new Menu("Nasi Ayam", "Testing", "20",R.drawable.testimage));
-        menus.add(new Menu("Nasi Ayam", "Testing", "20",R.drawable.testimage));
-        menus.add(new Menu("Nasi Ayam", "Testing", "20",R.drawable.testimage));
-        menus.add(new Menu("Nasi Ayam", "Testing", "20",R.drawable.testimage));
+        menus.add(new Menu("Nasi Goreng", "Mudah dibuat ", "30",R.drawable.ic_launcher_foreground));
+        menus.add(new Menu("Nasi Ayam", "Testing", "20",R.drawable.ic_launcher_foreground));
+        menus.add(new Menu("Nasi Goreng", "Mudah dibuat ", "30",R.drawable.ic_launcher_foreground));
+        menus.add(new Menu("Nasi asdasd", "asdsadasd dibuat ", "30",R.drawable.ic_launcher_foreground));
+        menus.add(new Menu("Nasi asdasdasd", "asdasdasdasd dibuat ", "30",R.drawable.ic_launcher_foreground));
+
 
 
         //Set Adapter
