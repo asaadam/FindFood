@@ -13,10 +13,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button login = findViewById(R.id.singIn);
+        Button regist = findViewById(R.id.register);
+        regist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent regist = new Intent(MainActivity.this,Regist.class);
+                startActivity(regist);
+            }
+        });
     }
 
     public void startLogin (View view){
         Intent login = new Intent(this,login_activity.class);
         startActivity(login);
     }
+
+
 }

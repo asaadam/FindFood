@@ -33,15 +33,13 @@
             android:name=".login_activity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
-
-       <activity android:name=".MenuList"
-           android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".Main2Activity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-
-
-
+        <activity
+            android:name=".MenuList"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".Main2Activity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".Regist"></activity>
     </application>
 
 </manifest>
