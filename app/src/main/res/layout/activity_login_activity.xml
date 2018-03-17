@@ -61,11 +61,11 @@ android:background="@color/Primary">
         android:background="@drawable/roundedcorner"
         android:padding="10dp"
         android:layout_margin="15dp"
-        android:id="@+id/email"
+        android:id="@+id/userLogin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/prompt_email"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         android:maxLines="1"
         android:textColor="#000"
         android:singleLine="true"
@@ -80,7 +80,7 @@ android:background="@color/Primary">
     <EditText
         android:padding="10dp"
         android:textColor="#000"
-        android:id="@+id/password"
+        android:id="@+id/passwordLogin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="15dp"
@@ -106,4 +106,10 @@ android:background="@color/Primary">
     android:text="@string/title_activity_login"
     android:textStyle="bold"
     />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signUP"
+        android:text="Not Registered yet? Sign up here"
+        android:textAlignment="center"/>
 </LinearLayout>
