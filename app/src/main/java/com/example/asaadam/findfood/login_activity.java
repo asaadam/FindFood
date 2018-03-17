@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,25 +47,34 @@ public class login_activity extends AppCompatActivity {
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
-                        //check if user not exist in database
-                        if(dataSnapshot.child("info").child(userLogin.getText().toString()).exists()) {
-                            //get user information
+                        if(TextUtils.isEmpty(userLogin.getText().toString().trim())){
                             mDialog.dismiss();
-                            UserDB user = dataSnapshot.child("info").child(userLogin.getText().toString()).getValue(UserDB.class);
-                            user.setUsername(userLogin.getText().toString());
-                            if (user.getPassword().equals(passwordRegist.getText().toString())) {
+                            Toast.makeText(login_activity.this,"Please enter username",Toast.LENGTH_LONG).show();
+                            return;
+                        }else if(TextUtils.isEmpty(passwordRegist.getText().toString().trim())){
+                            mDialog.dismiss();
+                            Toast.makeText(login_activity.this,"Please enter password",Toast.LENGTH_LONG).show();
+                            return;
+                        } else {
+                            //check if user not exist in database
+                            if(dataSnapshot.child("info").child(userLogin.getText().toString()).exists()) {
+                                //get user information
+                                mDialog.dismiss();
+                                UserDB user = dataSnapshot.child("info").child(userLogin.getText().toString()).getValue(UserDB.class);
+                                user.setUsername(userLogin.getText().toString());
+                                if (user.getPassword().equals(passwordRegist.getText().toString())) {
 
-                                Intent homeIntent = new Intent(login_activity.this, MenuList.class);
-                                Common.currentUser = user;
-                                startActivity(homeIntent);
-                                finish();
+                                    Intent homeIntent = new Intent(login_activity.this, MenuList.class);
+                                    Common.currentUser = user;
+                                    startActivity(homeIntent);
+                                    finish();
 
-                            } else {
-                                Toast.makeText(login_activity.this, "Wrong Password !", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(login_activity.this, "Wrong Password !", Toast.LENGTH_SHORT).show();
+                                }
+                            }else{
+                                Toast.makeText(login_activity.this, userLogin.getText().toString().trim().concat(" is not exist in Database"), Toast.LENGTH_SHORT).show();
                             }
-                        }else{
-                            Toast.makeText(login_activity.this, userLogin.getText().toString().trim().concat(" is not exist in Database"), Toast.LENGTH_SHORT).show();
                         }
                     }
 
