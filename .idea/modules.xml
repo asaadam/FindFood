@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/FindFood.iml" filepath="$PROJECT_DIR$/.idea/FindFood.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FindFood.iml" filepath="$PROJECT_DIR$/FindFood.iml" />
+      <module fileurl="file://C:\Users\asaadam\Downloads\ud845-Pets-starting-point\FindFood\.idea\FindFood.iml" filepath="C:\Users\asaadam\Downloads\ud845-Pets-starting-point\FindFood\.idea\FindFood.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
