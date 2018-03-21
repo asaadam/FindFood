@@ -1,16 +1,25 @@
 package com.example.asaadam.findfood;
 
 
+import org.parceler.Parcel;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+@Parcel
 public class Menu {
 
     //Set Attribtue
-    private String judul;
-    private String desc;
-    private int image;
-    private String time;
+     String judul;
+     String desc;
+     int image;
+     String time;
+     ArrayList bahan;
 
 
     //Set Constructor
+    public Menu(){}
+
     public Menu (String judul, String desc,String time,int image) {
 
         this.judul=judul;
@@ -35,5 +44,13 @@ public class Menu {
 
     public String getTime() {
         return time;
+    }
+
+    public void setBahan(ArrayList bahan) {
+        this.bahan = bahan;
+    }
+
+    public ArrayList getBahan() {
+        return bahan;
     }
 }

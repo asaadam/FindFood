@@ -1,5 +1,7 @@
 package com.example.asaadam.findfood;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 /**
@@ -16,7 +18,15 @@ public class SpecialHariIni {
         menus.add(new Menu("Nasi asdasdasd", "asdasdasdasd dibuat ", "30",R.drawable.ic_launcher_foreground));
 
 
+       Menu test= menus.get(0);
+       ArrayList<String> bahan= new ArrayList<String >();
+       bahan.add("Tempe");
+       bahan.add("Sayur");
+        for (int i = 0; i <bahan.size() ; i++) {
+            Log.v("Test",bahan.get(i));
+        }
 
+       test.setBahan(bahan);
 
         return menus;
     }

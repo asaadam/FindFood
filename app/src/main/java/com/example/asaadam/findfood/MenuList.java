@@ -28,7 +28,7 @@ public class MenuList extends AppCompatActivity {
         MenuAdapter adapter2 = new MenuAdapter(this, mSpecialBulanIni.initData());
         MenuAdapter adapter3 = new MenuAdapter(this,following.initData());
 
-        //Find List View
+        //Find recyclerView
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
         RecyclerView recyclerView2 = (RecyclerView) findViewById(R.id.list1);
         RecyclerView recyclerView3 = (RecyclerView)findViewById(R.id.list2);

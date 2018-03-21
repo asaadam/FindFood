@@ -1,6 +1,8 @@
 package com.example.asaadam.findfood;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -24,10 +26,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.parceler.Parcel;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
+public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>   {
 
     private List<Menu> menus;
     private Context context;
@@ -45,12 +51,20 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Menu currentWord = menus.get(position);
-        holder.desc.setText(currentWord.getDesc());
-        holder.image.setImageResource(currentWord.getImage());
-        holder.judul.setText(currentWord.getJudul());
-        holder.time.setText(currentWord.getTime());
+    public void onBindViewHolder( ViewHolder holder, int position) {
+        final Menu currentMenu = menus.get(position);
+        holder.desc.setText(currentMenu.getDesc());
+        holder.image.setImageResource(currentMenu.getImage());
+        holder.judul.setText(currentMenu.getJudul());
+        holder.time.setText(currentMenu.getTime());
+        holder.parentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,Menu_Page_1.class);
+                intent.putExtra("menu", Parcels.wrap(currentMenu));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -63,9 +77,11 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         private TextView judul;
         private TextView time;
         private ImageView image;
+        private View parentView;
 
     public ViewHolder(@NonNull View view) {
         super(view);
+        this.parentView=view;
         desc = (TextView) view.findViewById(R.id.desc);
         judul = (TextView) view.findViewById(R.id.judul);
         time = (TextView) view.findViewById(R.id.time);

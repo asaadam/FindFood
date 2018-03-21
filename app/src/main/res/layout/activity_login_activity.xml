@@ -51,12 +51,6 @@ android:background="@color/Primary">
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
-
-<android.support.design.widget.TextInputLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-   >
-
     <AutoCompleteTextView
         android:background="@drawable/roundedcorner"
         android:padding="10dp"
@@ -69,13 +63,6 @@ android:background="@color/Primary">
         android:textColor="#000"
         android:singleLine="true"
         android:textColorHint="#000"/>
-
-</android.support.design.widget.TextInputLayout>
-
-<android.support.design.widget.TextInputLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
     <EditText
         android:padding="10dp"
         android:textColor="#000"
@@ -91,8 +78,6 @@ android:background="@color/Primary">
         android:singleLine="true"
         android:textColorHint="#000"
         android:textSize="20sp"/>
-
-</android.support.design.widget.TextInputLayout>
 <Button
     android:onClick="startSignin"
     android:layout_gravity="center"
