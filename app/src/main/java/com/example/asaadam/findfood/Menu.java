@@ -15,6 +15,7 @@ public class Menu {
     int image;
     String time;
     ArrayList<Bahan> bahan1 =new ArrayList<Bahan>() ;
+    ArrayList<Step> steps = new ArrayList<Step>();
 
 
 
@@ -49,6 +50,15 @@ public class Menu {
     public void setBahan(String bahan,int banyak) {
         Bahan bahan2 = new Bahan(bahan,banyak);
         bahan1.add(bahan2);
+    }
+
+    public void setSteps (String steps , int time){
+        Step step = new Step(steps,time);
+        this.steps.add(step);
+    }
+
+    public ArrayList<Step> getSteps() {
+        return steps;
     }
 
     public ArrayList<Bahan> getBahan1() {

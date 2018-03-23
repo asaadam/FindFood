@@ -24,7 +24,7 @@ public class Menu_Page_1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu__page_1);
-        Menu menu = (Menu) Parcels.unwrap(getIntent().getParcelableExtra("menu"));
+       final Menu menu = (Menu) Parcels.unwrap(getIntent().getParcelableExtra("menu"));
         TextView tvJudul = findViewById(R.id.tvJudul);
         tvJudul.setText(menu.getJudul());
         ImageView ivJudul=findViewById(R.id.imageMakanan1);
@@ -35,6 +35,7 @@ public class Menu_Page_1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Menu_Page_1.this,Menu_Step.class);
+                intent.putExtra("menu",Parcels.wrap(menu));
                 startActivity(intent);
             }
         });
@@ -42,13 +43,6 @@ public class Menu_Page_1 extends AppCompatActivity {
         RecyclerView recyclerView=(RecyclerView) findViewById(R.id.rv1);
         recyclerView.setAdapter(bahan1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-
-
     }
-
-
-
 }
 

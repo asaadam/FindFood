@@ -14,8 +14,9 @@ public class SpecialHariIni {
         menus.add(new Menu("Nasi Goreng", "Mudah dibuat ", "30",R.drawable.ic_launcher_foreground));
        Menu test= menus.get(0);
       test.setBahan("Sayur",30);
-      test.setBahan("Kecap",30);
-
+      test.setBahan("Kecap",10);
+      test.setSteps("Cara memasak yang pertama adalah dengan menggoreng nasi",20);
+      test.setSteps("Memasak yang kedua adalah mengangkatnya dari penggorengan",5);
 
 
         return menus;

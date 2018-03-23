@@ -1,29 +1,27 @@
 package com.example.asaadam.findfood;
 
+import org.parceler.Parcel;
+
 /**
  * Created by asaadam on 3/23/2018.
  */
-
+@Parcel
 public class Step {
-    private String step;
-    private int image;
+     String step;
+     int time;
 
-    
-public Step (String step,int image){
-    this.step=step;
-    this.image=image;
+
+public Step(){
+
 }
 
-    public void setImage(int image) {
-        this.image = image;
-    }
+public Step (String step,int time){
+    this.step=step;
+    this.time=time;
+}
 
-    public void setStep(String step) {
-        this.step = step;
-    }
-
-    public int getImage() {
-        return image;
+    public int getTime() {
+        return time;
     }
 
     public String getStep() {

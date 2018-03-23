@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.asaadam.findfood.Menu_Step">
+    tools:context="com.example.asaadam.findfood.Menu_Step"
+    android:background="@color/Primary">
 <TextView
     android:id="@+id/judulStep"
     android:layout_width="wrap_content"
@@ -24,13 +25,20 @@
     android:layout_height="wrap_content"
     android:text="Timer"/>
 
-        <TextClock
+        <TextView
+            android:layout_marginLeft="5dp"
             android:id="@+id/textClock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/step"
             android:layout_toEndOf="@+id/timer1"
             android:text="30:30" />
+
+        <TextView
+            android:id="@+id/startTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Timer"/>
     <TextView
         android:layout_below="@+id/timer1"
         android:id="@+id/step"
@@ -45,6 +53,7 @@
         android:text="1"/>
     </RelativeLayout>
     <TextView
+        android:id="@+id/stepTv"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
