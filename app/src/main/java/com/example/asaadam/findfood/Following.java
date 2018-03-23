@@ -9,13 +9,7 @@ import java.util.ArrayList;
 public class Following {
     public ArrayList<Menu> initData() {
         ArrayList<Menu> result = new ArrayList<Menu>();
-        result.add(new Menu("AA", "BB", "20", 0));
-        result.add(new Menu("AA", "BB", "20", 0));
-        result.add(new Menu("AA", "BB", "20", 0));
-        result.add(new Menu("AA", "BB", "20", 0));
-        result.add(new Menu("AA", "BB", "20", 0));
-        result.add(new Menu("AA", "BB", "20", 0));
-        result.add(new Menu("AA", "BB", "20", 0));
+
 
 
         return result;

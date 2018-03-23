@@ -24,7 +24,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -65,6 +64,8 @@
 </android.support.v7.widget.RecyclerView>
 
 <Button
+    android:id="@+id/startStep"
+    android:text="MULAI MEMASAK"
     android:background="@drawable/capsuleshapebutton"
     android:backgroundTint="@color/Primary"
     android:layout_width="200dp"

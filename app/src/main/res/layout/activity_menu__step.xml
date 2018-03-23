@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.asaadam.findfood.Menu_Step">
+<TextView
+    android:id="@+id/judulStep"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<TextView
+    android:layout_centerHorizontal="true"
+    android:id="@+id/timer1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Timer"/>
+
+        <TextClock
+            android:id="@+id/textClock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/step"
+            android:layout_toEndOf="@+id/timer1"
+            android:text="30:30" />
+    <TextView
+        android:layout_below="@+id/timer1"
+        android:id="@+id/step"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Step"/>
+    <TextView
+        android:layout_below="@+id/timer1"
+        android:layout_toRightOf="@+id/step"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"/>
+    </RelativeLayout>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INI cara memasak yang bear"/>
+</LinearLayout>

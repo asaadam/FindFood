@@ -17,12 +17,13 @@ import java.util.List;
  */
 
 public class BahanAdapter extends RecyclerView.Adapter<BahanAdapter.ViewHolder> {
-    private ArrayList<String> bahan;
+    private List<Bahan> bahan;
     private Context context;
 
-    public BahanAdapter(Context context, Menu menus) {
+    public BahanAdapter(Context context, ArrayList<Bahan> bahan) {
         this.context = context;
-        this.bahan = new ArrayList<String>(menus.getBahan());
+        this.bahan=bahan;
+
     }
 
     @Override
@@ -34,7 +35,11 @@ public class BahanAdapter extends RecyclerView.Adapter<BahanAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.bahan.setText(bahan.get(position));
+        Bahan currentBahan = bahan.get(position);
+        holder.bahan.setText(currentBahan.getNamaBahan().toString());
+        String banyak=Integer.toString(currentBahan.getBanyakBahan());
+        holder.jumlah.setText(banyak);
+
     }
 
     @Override

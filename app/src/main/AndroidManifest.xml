@@ -40,7 +40,9 @@
         <activity
             android:name=".Regist"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".Menu_Page_1"></activity>
+        <activity android:name=".Menu_Page_1" />
+        <activity android:name=".Create_Menu" />
+        <activity android:name=".Menu_Step" />
     </application>
 
 </manifest>
