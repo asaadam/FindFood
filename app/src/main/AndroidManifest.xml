@@ -35,14 +35,22 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".MenuList"
+            android:name=".MenuActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".SignUp"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".Menu_Page_1" />
-        <activity android:name=".Create_Menu" />
         <activity android:name=".Menu_Step" />
+        <activity
+            android:name=".NewPostActivity"
+            android:label="@string/title_activity_new_post"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MyRecipeActivity" />
+        <activity android:name=".PostDetailActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
     </application>
 
 </manifest>

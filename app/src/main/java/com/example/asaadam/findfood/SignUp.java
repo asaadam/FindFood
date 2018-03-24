@@ -50,34 +50,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         already.setOnClickListener(this);
     }
     private void registerUser(){
-        String email = emailRegist.getText().toString().trim();
-        String password  = passwordRegist.getText().toString().trim();
-        String username = usernameRegist.getText().toString().trim();
-        String name = nameRegist.getText().toString().trim();
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+        if (!validateForm()) {
             return;
         }
-
-        if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(username)){
-            Toast.makeText(this,"Please enter username",Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if(TextUtils.isEmpty(name)){
-            Toast.makeText(this,"Please enter name",Toast.LENGTH_LONG).show();
-            return;
-        }
-        if (!TextUtils.isEmpty(name)) {
             progressDialog.setMessage("Registering Please Wait...");
             progressDialog.show();
-            String id = databaseUser.push().getKey();
-            User users = new User(id, name, username,password,email);
-            databaseUser.child("users").child(id).setValue(users);
+            String email = emailRegist.getText().toString().trim();
+            String password  = passwordRegist.getText().toString().trim();
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -85,7 +64,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "createUserWithEmail:success");
-                                FirebaseUser user = firebaseAuth.getCurrentUser();
+                                onAuthSuccess(task.getResult().getUser());
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -96,16 +75,49 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                             // ...
                         }
                     });
-            emailRegist.setText("");
-            nameRegist.setText("");
-            passwordRegist.setText("");
-            usernameRegist.setText("");
-            Toast.makeText(this, "Registered successfully", Toast.LENGTH_LONG).show();
             progressDialog.dismiss();
+
+    }
+    private boolean validateForm() {
+        boolean result = true;
+        if (TextUtils.isEmpty(emailRegist.getText().toString())) {
+            emailRegist.setError("Required");
+            result = false;
         } else {
-            Toast.makeText(this, "Registered Failed", Toast.LENGTH_LONG).show();
+            emailRegist.setError(null);
         }
 
+        if (TextUtils.isEmpty(passwordRegist.getText().toString())) {
+            passwordRegist.setError("Required");
+            result = false;
+        } else {
+            passwordRegist.setError(null);
+        }
+        if (TextUtils.isEmpty(usernameRegist.getText().toString())) {
+            usernameRegist.setError("Required");
+            result = false;
+        } else {
+            usernameRegist.setError(null);
+        }
+
+        if (TextUtils.isEmpty(nameRegist.getText().toString())) {
+            nameRegist.setError("Required");
+            result = false;
+        } else {
+            nameRegist.setError(null);
+        }
+        return result;
+    }
+    private void onAuthSuccess(FirebaseUser user) {
+        String email = emailRegist.getText().toString().trim();
+        String username = usernameRegist.getText().toString().trim();
+        String name = nameRegist.getText().toString().trim();
+        String id = user.getUid();
+        User users = new User(name, username,email);
+        databaseUser.child("users").child(id).setValue(users);
+        // Go to MainActivity
+        startActivity(new Intent(SignUp.this, SignIn.class));
+        finish();
     }
     @Override
     public void onClick(View v) {

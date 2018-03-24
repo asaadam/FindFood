@@ -17,11 +17,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class SignIn extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "SignIn";
@@ -56,8 +51,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                         Log.d(TAG, "signIn:onComplete:" + task.isSuccessful());
 
                         if (task.isSuccessful()) {
-                            FirebaseUser currentUser = mAuth.getCurrentUser();
-                            Intent login = new Intent(SignIn.this,MenuList.class);
+                            Intent login = new Intent(SignIn.this,MenuActivity.class);
                             startActivity(login);
                         } else {
                             Toast.makeText(SignIn.this, "Sign In Failed",
