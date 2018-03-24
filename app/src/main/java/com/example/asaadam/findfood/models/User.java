@@ -1,19 +1,19 @@
-package com.example.asaadam.findfood;
+package com.example.asaadam.findfood.models;
 import com.google.firebase.database.IgnoreExtraProperties;
 /**
  * Created by jenrinaldo on 3/17/18.
  */
 @IgnoreExtraProperties
-public class UserDB {
+public class User {
     private String userID;
     private String username;
     private String password;
     private String email;
     private String name;
-    public UserDB(){
+    public User(){
 
     }
-    public UserDB(String userID, String name,String username,String password,String email){
+    public User(String userID, String name, String username, String password, String email){
         this.userID = userID;
         this.email = email;
         this.name = name;

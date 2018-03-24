@@ -31,14 +31,14 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".login_activity"
+            android:name=".SignIn"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".MenuList"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".Regist"
+            android:name=".SignUp"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".Menu_Page_1" />
         <activity android:name=".Create_Menu" />

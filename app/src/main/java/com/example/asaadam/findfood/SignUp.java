@@ -6,17 +6,24 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.asaadam.findfood.models.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseAuth;
-import java.util.List;
-public class Regist extends AppCompatActivity implements View.OnClickListener {
+
+public class SignUp extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = "SignUp";
     private Button button;
     private EditText emailRegist;
     private EditText passwordRegist;
@@ -29,9 +36,9 @@ public class Regist extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_regist);
+        setContentView(R.layout.activity_signup);
         firebaseAuth = FirebaseAuth.getInstance();
-        databaseUser = FirebaseDatabase.getInstance().getReference("user");
+        databaseUser = FirebaseDatabase.getInstance().getReference();
         progressDialog = new ProgressDialog(this);
         button = (Button) findViewById(R.id.button);
         nameRegist = (EditText) findViewById(R.id.nameRegist);
@@ -69,8 +76,26 @@ public class Regist extends AppCompatActivity implements View.OnClickListener {
             progressDialog.setMessage("Registering Please Wait...");
             progressDialog.show();
             String id = databaseUser.push().getKey();
-            UserDB users = new UserDB(id, name, username,password,email);
-            databaseUser.child("info").child(username).setValue(users);
+            User users = new User(id, name, username,password,email);
+            databaseUser.child("users").child(id).setValue(users);
+            firebaseAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(TAG, "createUserWithEmail:success");
+                                FirebaseUser user = firebaseAuth.getCurrentUser();
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(SignUp.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+
+                            // ...
+                        }
+                    });
             emailRegist.setText("");
             nameRegist.setText("");
             passwordRegist.setText("");
@@ -80,6 +105,7 @@ public class Regist extends AppCompatActivity implements View.OnClickListener {
         } else {
             Toast.makeText(this, "Registered Failed", Toast.LENGTH_LONG).show();
         }
+
     }
     @Override
     public void onClick(View v) {
@@ -87,7 +113,7 @@ public class Regist extends AppCompatActivity implements View.OnClickListener {
             registerUser();
         }
         if(v == already){
-            Intent login = new Intent(Regist.this,login_activity.class);
+            Intent login = new Intent(SignUp.this,SignIn.class);
             startActivity(login);
         }
     }

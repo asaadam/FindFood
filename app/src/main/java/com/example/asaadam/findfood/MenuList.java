@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-import java.util.ArrayList;
+import com.example.asaadam.findfood.viewholder.MenuAdapter;
 
 /**
  * Created by asaadam on 3/14/2018.
@@ -23,7 +23,7 @@ public class MenuList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.food_list);
+        setContentView(R.layout.activity_home);
 
         SpecialHariIni menus = new SpecialHariIni();
 

@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
-tools:context="com.example.asaadam.findfood.login_activity"
+tools:context="com.example.asaadam.findfood.SignIn"
 android:background="@color/Primary">
 
 
@@ -51,14 +51,14 @@ android:background="@color/Primary">
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
-    <AutoCompleteTextView
+    <EditText
         android:background="@drawable/roundedcorner"
         android:padding="10dp"
         android:layout_margin="15dp"
         android:id="@+id/userLogin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Username"
+        android:hint="E-Mail"
         android:maxLines="1"
         android:textColor="#000"
         android:singleLine="true"
@@ -78,6 +78,7 @@ android:background="@color/Primary">
         android:singleLine="true"
         android:textColorHint="#000"
         android:textSize="20sp"/>
+
 <Button
     android:onClick="startSignin"
     android:layout_gravity="center"

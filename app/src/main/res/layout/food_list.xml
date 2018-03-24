@@ -19,7 +19,7 @@
         android:layout_height="200dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="2dp"
         android:scaleType="fitXY"
         android:src="@mipmap/imagetest" />
 
@@ -172,7 +172,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_gravity="start"
-        app:menu="@menu/navigation_menu">
+        app:menu="@menu/activity_main_drawer">
 
     </android.support.design.widget.NavigationView>
 

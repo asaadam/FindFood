@@ -17,14 +17,14 @@ public class MainActivity extends AppCompatActivity {
         regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regist = new Intent(MainActivity.this,Regist.class);
+                Intent regist = new Intent(MainActivity.this,SignUp.class);
                 startActivity(regist);
             }
         });
     }
 
     public void startLogin (View view){
-        Intent login = new Intent(this,login_activity.class);
+        Intent login = new Intent(this,SignIn.class);
         startActivity(login);
     }
 
