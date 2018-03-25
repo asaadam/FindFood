@@ -4,8 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +23,9 @@ import android.widget.TextView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.asaadam.findfood.fragment.AllPost;
+import com.example.asaadam.findfood.fragment.MyRecipe;
+import com.example.asaadam.findfood.fragment.MyTopRecipes;
 import com.example.asaadam.findfood.models.User;
 import com.example.asaadam.findfood.viewholder.MenuAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,6 +49,9 @@ public class MenuActivity extends BaseActivity implements NavigationView.OnNavig
     private FirebaseAuth mAuth;
     TextView nameLogin;
     TextView emailLogin;
+    private FragmentPagerAdapter mPagerAdapter;
+
+    private ViewPager mViewPager;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +66,34 @@ public class MenuActivity extends BaseActivity implements NavigationView.OnNavig
         MenuAdapter adapter = new MenuAdapter(this, menus.initData());
         //Find recyclerView
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+
+        mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            private final Fragment[] mFragments = new Fragment[] {
+                    new AllPost(),
+            };
+            private final String[] mFragmentNames = new String[] {
+                    getString(R.string.heading_recent)
+            };
+            @Override
+            public Fragment getItem(int position) {
+                return mFragments[position];
+            }
+            @Override
+            public int getCount() {
+                return mFragments.length;
+            }
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return mFragmentNames[position];
+            }
+        };
+        // Set up the ViewPager with the sections adapter.
+        NestedScrollView scrollView = (NestedScrollView) findViewById (R.id.scrollView2);
+        scrollView.setFillViewport (true);
+        mViewPager = findViewById(R.id.containers);
+        mViewPager.setAdapter(mPagerAdapter);
+        TabLayout tabLayout = findViewById(R.id.tabel);
+        tabLayout.setupWithViewPager(mViewPager);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -96,6 +135,7 @@ public class MenuActivity extends BaseActivity implements NavigationView.OnNavig
             }
         });
         setNameUser();
+
     }
     public void setNameUser(){
         // [START single_value_read]
