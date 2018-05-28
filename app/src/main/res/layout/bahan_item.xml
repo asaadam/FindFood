@@ -3,15 +3,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     >
+    <ImageView
+        android:id="@+id/imageStep1"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_add_circle_outline_black_48dp"/>
+
     <TextView
         android:id="@+id/bahan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:layout_centerVertical="true"
+        android:layout_marginStart="6dp"
+        android:layout_toEndOf="@+id/imageStep1"
+        android:text="" />
+
     <TextView
         android:id="@+id/banyakBahan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="8dp"
+        android:text="" />
 </RelativeLayout>

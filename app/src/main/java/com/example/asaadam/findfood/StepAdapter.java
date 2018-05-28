@@ -1,11 +1,13 @@
 package com.example.asaadam.findfood;
 
 import android.content.Context;
+import android.media.Image;
 import android.os.CountDownTimer;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -51,10 +53,12 @@ public class StepAdapter extends PagerAdapter {
         TextView startText = (TextView)view.findViewById(R.id.startTimer);
         final TextView timer = (TextView)view.findViewById(R.id.textClock);
         TextView step = (TextView)view.findViewById(R.id.stepTv);
+        ImageView imageView=(ImageView)view.findViewById(R.id.stepImage);
 
         String timerText=Integer.toString(currentStep.getTime());
         timer.setText(timerText);
         step.setText(currentStep.getStep());
+        imageView.setImageResource(currentStep.getImage());
         startText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

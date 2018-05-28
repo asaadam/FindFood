@@ -26,18 +26,24 @@ public class MenuList extends AppCompatActivity {
         setContentView(R.layout.food_list);
 
         SpecialHariIni menus = new SpecialHariIni();
+        SpecialBulanIni menus1=new SpecialBulanIni();
 
         //Set Adapter
         MenuAdapter adapter = new MenuAdapter(this, menus.initData());
+        MenuAdapter adapter1=new MenuAdapter(this,menus1.initData());
 
         //Find recyclerView
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
-
+        RecyclerView recyclerView1=(RecyclerView)findViewById(R.id.list1);
         //Set Adapter to list View
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
 
-         mDrawer=(DrawerLayout)findViewById(R.id.drawerlayout);
+        recyclerView1.setAdapter(adapter1);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+
+
+        mDrawer=(DrawerLayout)findViewById(R.id.drawerlayout);
         NavigationView mview = (NavigationView)findViewById(R.id.nvView);
 
         //Find edit text

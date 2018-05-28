@@ -27,30 +27,34 @@ public class Menu_Step extends AppCompatActivity {
         setContentView(R.layout.steplayout);
         viewPager=(ViewPager)findViewById(R.id.viewPager);
         linearLayout=(LinearLayout)findViewById(R.id.dotsLayout);
-
-        Menu menu = (Menu)Parcels.unwrap(getIntent().getParcelableExtra("menu"));
+        final Menu menu = (Menu)Parcels.unwrap(getIntent().getParcelableExtra("menu"));
         step=menu.getSteps();
-
         stepAdapter=new StepAdapter(this,step);
         viewPager.setAdapter(stepAdapter);
-        addDotsIndicator(0);
+        addDotsIndicator();
         viewPager.addOnPageChangeListener(viewListener);
 
     }
 
-    public void addDotsIndicator(int position){
-        textViews=new TextView[step.size()];
-        for (int i = 0; i <textViews.length ; i++) {
-            textViews[i]=new TextView(this);
+    public void addDotsIndicator() {
+        textViews = new TextView[step.size()];
+        for (int i = 0; i < textViews.length; i++) {
+            textViews[i] = new TextView(this);
             textViews[i].setText(Html.fromHtml("&#8226"));
-
+            textViews[i].setTextSize(40);
+            textViews[i].setTextColor(getResources().getColor(R.color.Transparent));
             linearLayout.addView(textViews[i]);
-        }
-        if (textViews.length>0){
-            textViews[position].setTextColor(getResources().getColor(R.color.Transparent));
         }
 
     }
+
+    public void setColorIndicator (int position){
+        if (textViews.length > 0) {
+            textViews[position].setTextColor(getResources().getColor(R.color.TransparentWhite));
+        }
+    }
+
+
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -59,7 +63,7 @@ public class Menu_Step extends AppCompatActivity {
 
         @Override
         public void onPageSelected(int position) {
-        addDotsIndicator(position);
+        setColorIndicator(position);
 
         }
 

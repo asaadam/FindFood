@@ -52,8 +52,8 @@ public class Menu {
         bahan1.add(bahan2);
     }
 
-    public void setSteps (String steps , int time){
-        Step step = new Step(steps,time);
+    public void setSteps (String steps , int time,int image){
+        Step step = new Step(steps,time,image);
         this.steps.add(step);
     }
 

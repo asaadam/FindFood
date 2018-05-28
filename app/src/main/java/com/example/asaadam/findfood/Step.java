@@ -9,15 +9,17 @@ import org.parceler.Parcel;
 public class Step {
      String step;
      int time;
+     int image;
 
 
 public Step(){
 
 }
 
-public Step (String step,int time){
+public Step (String step,int time,int image){
     this.step=step;
     this.time=time;
+    this.image=image;
 }
 
     public int getTime() {
@@ -28,4 +30,7 @@ public Step (String step,int time){
         return step;
     }
 
+    public int getImage() {
+        return image;
+    }
 }

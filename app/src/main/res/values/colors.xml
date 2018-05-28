@@ -3,4 +3,5 @@
     <color name="colorPrimary">#FF7272</color>
     <color name="Primary">#FFB13B</color>
     <color name="Transparent">#cccc</color>
+    <color name="TransparentWhite">#ffffff</color>
 </resources>
